@@ -1,3 +1,14 @@
-<p>
-  navbar works!
-</p>
+<div class="container">
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+    <div class="navbar-header">
+      <a href="" class="navbar-brand">ITSI</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left head-title">
+        <li *ngFor="let item of menuItems; let i=index">
+          <a href="#">{{item.ButtonName}}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
