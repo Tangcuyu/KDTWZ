@@ -14,10 +14,12 @@ Powered by [KeystoneJS](http://keystonejs.com).
 
 Run steps:
 
-1. 进入front目录，运行 ng build
-2. 返回根目录， 运行 npm start
+1. 进入front目录，运行 grunt
+2. 进入根目录， 运行 grunt
+3. 进入根目录， 运行npm start
 
 
 前后组合思路：
 在keystone项目根目录中建立前端框架目录front, 分别编译前端目录和后端目录。
 编译前端目录后，利用copyStaticAssets.js拷贝前端编译后的文件到后台dist目录中的keystone静态目录文件：public文件夹中。
+利用grunt自动运行ng的编译，以及keystone的ts编译，然后启动keystone。
