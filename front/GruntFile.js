@@ -9,10 +9,13 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             files : ['src/**/*'],
-            tasks : ['exec:run_ng']
+            tasks : ['exec:run_ng'],
+            options: {
+                spawn: false
+            }        
         },
         exec: {
-            run_ng: {cmd: 'ng build'}
+            run_ng: {cmd: 'ng build --watch'}
         }
     });
 
