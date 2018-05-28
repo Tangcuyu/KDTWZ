@@ -14,7 +14,8 @@ export class NavbarComponent implements OnInit {
 
   menuItems: IButtonName [] = [
     { ButtonName: 'About'},
-    { ButtonName: 'Contact'}
+    { ButtonName: 'Contact'},
+    { ButtonName: 'Login'}
   ];
 
   constructor() { }

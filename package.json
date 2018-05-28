@@ -42,6 +42,7 @@
     "grunt": "^1.0.2",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-exec": "^3.0.0",
+    "keystonejs-stub": "^0.2.3",
     "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
     "shelljs": "^0.7.7",
