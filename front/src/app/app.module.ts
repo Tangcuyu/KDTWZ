@@ -10,12 +10,16 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClient } from 'selenium-webdriver/http';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { RightscreenComponent } from './rightscreen/rightscreen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    SidenavComponent,
+    RightscreenComponent
   ],
   imports: [
     BrowserModule,

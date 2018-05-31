@@ -3,6 +3,8 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { RightscreenComponent } from './rightscreen/rightscreen.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -10,6 +12,8 @@ describe('AppComponent', () => {
       declarations: [
         NavbarComponent,
         LoginComponent,
+        SidenavComponent,
+        RightscreenComponent,
         AppComponent
       ],
       imports: [
@@ -21,11 +25,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
   }));
   it('should create the navbar', async(() => {
     const fixture = TestBed.createComponent(NavbarComponent);
