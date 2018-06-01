@@ -5,6 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RightscreenComponent } from './rightscreen/rightscreen.component';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        FormsModule
+        FormsModule,
+        NgZorroAntdModule.forRoot()
       ]
     }).compileComponents();
   }));

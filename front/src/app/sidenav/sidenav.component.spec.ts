@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { SidenavComponent } from './sidenav.component';
 
@@ -8,7 +9,8 @@ describe('SidenavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidenavComponent ]
+      declarations: [ SidenavComponent ],
+      imports: [NgZorroAntdModule]
     })
     .compileComponents();
   }));
