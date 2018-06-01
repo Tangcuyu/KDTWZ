@@ -13,7 +13,7 @@ interface IButtonName {
 export class NavbarComponent implements OnInit {
 
   menuItems: IButtonName [] = [
-    { ButtonName: '大唐物资集团采购管理'},
+    { ButtonName: '物资采购管理'},
     { ButtonName: 'Contact'},
     { ButtonName: 'Blog' },
     { ButtonName: 'Email' },

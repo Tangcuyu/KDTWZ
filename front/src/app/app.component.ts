@@ -28,10 +28,12 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
   showNavPanel() {
     this.sidenav.showNav();
     document.getElementById('main').style.marginLeft = '200px';
+    document.getElementById('showSide').classList.remove('anticon-right');
   }
   hideNavPanel() {
     this.sidenav.closeNav();
     document.getElementById('main').style.marginLeft = '0px';
+    document.getElementById('showSide').classList.add('anticon-right');
   }
   showDetailPanel() {
     this.rightscreen.openRightWindow();
@@ -61,5 +63,8 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
     this.mediator.showHideSideNavClicked();
   }
 
+  showSideClicked() {
+    this.mediator.moveToState(StateType.MainPanelWithSideNav);
+  }
 
 }

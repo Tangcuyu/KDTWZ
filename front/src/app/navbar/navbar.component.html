@@ -1,5 +1,9 @@
 <nz-header>
   <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+    <li>
+      <a href="#" class="logo"></a>
+    </li>
+    
     <li nz-menu-item *ngFor="let item of menuItems; let i=index">
       <a href="#">{{item.ButtonName}}</a>
     </li>

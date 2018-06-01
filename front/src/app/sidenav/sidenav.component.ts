@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  @Output() notifyside: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  closesideClicked() {
+    this.notifyside.emit('Click from sidenav component');
   }
 
   closeNav() {
