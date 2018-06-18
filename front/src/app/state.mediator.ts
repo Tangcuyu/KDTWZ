@@ -1,12 +1,14 @@
 export enum StateType {
     MainPanelOnly,
     MainPanelWithSideNav,
-    DetailPanel
+    DetailPanel,
+    LoginPanel
 }
 
 export enum PanelType {
     Primary,
-    Detail
+    Detail,
+    OverlayPanel
 }
 
 export interface IState {
@@ -14,6 +16,7 @@ export interface IState {
     getPanelType(): PanelType;
     isSideNavVisable(): boolean;
     getPanelButtonClass(): string;
+    isLoginVisible(): boolean;
 }
 
 export class MainPanelOnly implements IState {
@@ -29,6 +32,10 @@ export class MainPanelOnly implements IState {
     }
 
     isSideNavVisable(): boolean {
+        return false;
+    }
+
+    isLoginVisible(): boolean {
         return false;
     }
     constructor() {
@@ -51,6 +58,10 @@ export class MainPanelWithSideNav implements IState {
     isSideNavVisable(): boolean {
         return true;
     }
+
+    isLoginVisible(): boolean {
+        return false;
+    }
 }
 
 export class DetailPanel implements IState {
@@ -69,20 +80,47 @@ export class DetailPanel implements IState {
     isSideNavVisable(): boolean {
         return false;
     }
+    isLoginVisible(): boolean {
+        return false;
+    }
 }
 
+export class LoginPanel implements IState {
+    getPanelType(): PanelType {
+        return PanelType.OverlayPanel;
+    }
+
+    getStateType(): StateType {
+        return StateType.LoginPanel;
+    }
+
+    getPanelButtonClass(): string {
+        return '';
+    }
+
+    isLoginVisible(): boolean {
+        return true;
+    }
+
+    isSideNavVisable(): boolean {
+        return false;
+    }
+}
 export interface IMediatorImpl {
     showNavPanel();
     hideNavPanel();
     showDetailPanel();
     hideDetailPanel();
     changeShowHideSideButton(fromclass: string, toclass: string);
+    showLoginPanel(): void;
+    hideLoginPanel(): void;
 }
 
 export class Mediator {
     private _mainPanelState = new MainPanelOnly();
     private _detailPanelState = new DetailPanel();
     private _sideNavState = new MainPanelWithSideNav();
+    private _loginState = new LoginPanel();
 
     private _currentState: IState;
     private _currentMainPanelState: IState;
@@ -105,6 +143,8 @@ export class Mediator {
             case StateType.MainPanelWithSideNav:
                 stateImpl = this._sideNavState;
                 break;
+            case StateType.LoginPanel:
+                stateImpl = this._loginState;
         }
         return stateImpl;
     }
@@ -125,6 +165,12 @@ export class Mediator {
             this._mediatorImpl.showNavPanel();
         } else {
             this._mediatorImpl.hideNavPanel();
+        }
+
+        if (nextState.isLoginVisible()) {
+            this._mediatorImpl.showLoginPanel();
+        } else {
+            this._mediatorImpl.hideLoginPanel();
         }
 
         this._mediatorImpl.changeShowHideSideButton(

@@ -28,6 +28,7 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 const routes = {
+      api: importRoutes('./api'),
       views: importRoutes('./views'),
 };
 
@@ -38,6 +39,7 @@ export = function (app) {
       app.get('/blog/:category?', routes.views.blog);
       app.get('/blog/post/:post', routes.views.post);
       app.get('/gallery', routes.views.gallery);
+      app.get('/boards', routes.api.boards);
       app.all('/contact', routes.views.contact);
 
       // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

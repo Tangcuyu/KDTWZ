@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RightscreenComponent } from './rightscreen/rightscreen.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { HttpClientModule } from '@angular/common/http';
+import { BoardlistComponent } from './boardlist/boardlist.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,10 +17,12 @@ describe('AppComponent', () => {
         LoginComponent,
         SidenavComponent,
         RightscreenComponent,
+        BoardlistComponent,
         AppComponent
       ],
       imports: [
         FormsModule,
+        HttpClientModule,
         NgZorroAntdModule.forRoot()
       ]
     }).compileComponents();

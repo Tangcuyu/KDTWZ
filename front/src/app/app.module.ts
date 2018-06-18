@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpClient } from 'selenium-webdriver/http';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RightscreenComponent } from './rightscreen/rightscreen.component';
+import { BoardlistComponent } from './boardlist/boardlist.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RightscreenComponent } from './rightscreen/rightscreen.component';
     NavbarComponent,
     LoginComponent,
     SidenavComponent,
-    RightscreenComponent
+    RightscreenComponent,
+    BoardlistComponent
   ],
   imports: [
     BrowserModule,

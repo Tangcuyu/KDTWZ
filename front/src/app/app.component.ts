@@ -3,6 +3,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RightscreenComponent } from './rightscreen/rightscreen.component';
 import { IMediatorImpl, StateType, Mediator } from './state.mediator';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,9 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
 
   @ViewChild(RightscreenComponent)
   private rightscreen: RightscreenComponent;
+
+  @ViewChild(LoginComponent)
+  private loginpanel: LoginComponent;
 
   mediator: Mediator = new Mediator(this);
   ngAfterViewInit() {
@@ -48,6 +52,13 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
       document.getElementById('show-hide-side-button').classList.remove(fromclass);
       document.getElementById('show-hide-side-button').classList.add(toclass);
     }
+  }
+  showLoginPanel() {
+    return '';
+  }
+
+  hideLoginPanel() {
+    return '';
   }
 
   buttonClickedDetail() {
