@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { IBoardListItem } from '../IBoardList';
 
 @Component({
   selector: 'app-rightscreen',
@@ -6,6 +7,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./rightscreen.component.css']
 })
 export class RightscreenComponent implements OnInit {
+
+  board: IBoardListItem = {name: 'no board selected'};
 
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 

@@ -1,5 +1,70 @@
-<div id="myRightScreen" class="overlay">
-  <button nz-button nzGhost (click)="closeClicked()">
-    <i class="anticon anticon-right" style="color: black"></i>
-  </button>
-</div>
+<nz-layout>
+  <div id="myRightScreen" class="overlay">
+    <button nz-button (click)="closeClicked()">
+      <i class="anticon anticon-right"></i>
+    </button>
+    <div class="overlay">
+      <div id="board_detail_inner_panel" nz-row class="board_detail_inner_panel_row">
+        <div nz-col nzSpan="24">
+          <div nz-row class="board_detail_row">
+            <div nz-col nzSpan="16">
+              <div nz-row>
+                <div nz-col nzSpan="24" class="board_detail_header">
+                  {{board.name}}
+                </div>
+              </div>
+              <div nz-row>
+                <div class="board_detail_sub_header">
+                  {{board.description}}
+                </div>
+              </div>
+            </div>
+            <div nz-col nzSpan="8">
+              <img src="front/dist/front/assets/images/{{board.manufacturer_logo}}" class="jpa_logo_class" alt="">
+            </div>
+          </div>
+          <div nz-row>
+            <div nz-col nzSpan="10">
+              <img src="front/dist/front/assets/images/{{board.image}}" alt="" class="board_detail_image_heigh">
+            </div>
+            <div nz-col nzSpan="14">
+              <div nz-row>
+                <div nz-col nzSpan="24" class="board_detail_text">
+                  {{board.long_description}}
+                </div>
+              </div>
+              <div nz-row>
+                <div nz-col nzSpan="24" class="board_detail_size_header">
+                  Available Sizes:
+                </div>
+              </div>
+              <div nz-row>
+                <div nz-col nzSpan="24" class="board_detail_table_header">
+                  <table class="table table-striped">
+                    <thead>
+                      <th>Volume</th>
+                      <th>Width</th>
+                      <th>Length</th>
+                      <th>Sail_max</th>
+                      <th>Sail_min</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let size of board.sizes">
+                        <td>{{size.volume}}</td>
+                        <td>{{size.width}}</td>
+                        <td>{{size.length}}</td>
+                        <td>{{size.sail_max}}</td>
+                        <td>{{size.sail_min}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+</nz-layout>

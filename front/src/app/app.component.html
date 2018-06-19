@@ -3,17 +3,21 @@
 <nz-layout class="sidenav" id="mySidenav">
     <app-sidenav (notifyside)='showHideSideClicked($event)'></app-sidenav>
 </nz-layout>
-<app-rightscreen (notify)='onNotifyRightWindow($event)'></app-rightscreen>
-<nz-layout id="main">
-    <div style="background:#fff; min-height: 280px;">
-        <i id="showSide" class="anticon" (click)="showSideClicked()"></i>
-        <div nz-row>
-            <div nz-col nzSpan="4">
-                <button nz-button nzType="primary" (click)="buttonClickedDetail()">detail</button>
-            </div>
+<nz-layout>
+    <app-rightscreen (notify)='onNotifyRightWindow($event)'></app-rightscreen>
+</nz-layout>
+<nz-layout id="main" class="main-content">
+    <div nz-row>
+        <div nz-col nzSpan="2">
+            <i id="showSide" class="anticon" (click)="showSideClicked()"></i>
         </div>
-        <app-boardlist></app-boardlist>
-        
+        <div nz-col nzSpan="22">
+            <div class="row-content-header">{{title}}</div>
+        </div>      
+    </div>
+    <div class="main-content">
+        <app-boardlist (notify)="onNotifyBoardList($event)">
+        </app-boardlist>
     </div>
 </nz-layout>
 

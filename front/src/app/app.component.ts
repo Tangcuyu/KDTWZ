@@ -4,6 +4,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { RightscreenComponent } from './rightscreen/rightscreen.component';
 import { IMediatorImpl, StateType, Mediator } from './state.mediator';
 import { LoginComponent } from './login/login.component';
+import { IBoardListItem } from './IBoardList';
 
 @Component({
   selector: 'app-root',
@@ -70,11 +71,17 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
       this.mediator.getCurrentMainPanelState());
   }
 
-  showHideSideClicked() {
+  onNotifyBoardList(board: IBoardListItem): void {
+    console.log(board);
+    this.rightscreen.board = board;
+    this.mediator.moveToState(StateType.DetailPanel);
+  }
+
+  showHideSideClicked(): void {
     this.mediator.showHideSideNavClicked();
   }
 
-  showSideClicked() {
+  showSideClicked(): void {
     this.mediator.moveToState(StateType.MainPanelWithSideNav);
   }
 

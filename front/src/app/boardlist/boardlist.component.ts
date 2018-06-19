@@ -1,7 +1,5 @@
 import { Component, OnInit, Injectable, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { IBoardListItem, IBoardSizeItem, IBoardType, IManufacturer } from '../IBoardList';
 
 
@@ -16,12 +14,19 @@ export class BoardlistComponent implements OnInit {
   currentList: IManufacturer [];
   jsonResponse: IManufacturer;
 
+  @Output() notify: EventEmitter<IBoardListItem> = new EventEmitter<IBoardListItem>();
+
+  boardClicked(board: IBoardListItem) {
+    console.log(`board: ${board.name}`);
+    this.notify.emit(board);
+  }
+
   constructor(private http: HttpClient) {
-    console.log(`BordListCompnent constructor`);
-    this.http.get('/boards').subscribe(
-      (data: IManufacturer) => {
-        this.manufacturerList = this.currentList = [data];
-        console.log(this.currentList);
+    // console.log(`BordListCompnent constructor`);
+    this.http.get<IManufacturer[]>('/boards').subscribe(
+      (data: IManufacturer[]) => {
+        this.manufacturerList = this.currentList = data;
+        console.log(this.manufacturerList);
       },
       error => {
         console.log(`error: ${error}`);

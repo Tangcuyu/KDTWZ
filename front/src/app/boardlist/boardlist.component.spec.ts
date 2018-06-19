@@ -1,7 +1,5 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import {
-  HttpClient, HttpErrorResponse
- } from '@angular/common/http';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 
@@ -18,7 +16,7 @@ describe('BoardlistComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BoardlistComponent ],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule, HttpClientModule],
     })
     .compileComponents();
 
