@@ -9,7 +9,6 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClient } from 'selenium-webdriver/http';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RightscreenComponent } from './rightscreen/rightscreen.component';
 import { BoardlistComponent } from './boardlist/boardlist.component';

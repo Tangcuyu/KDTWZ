@@ -42,4 +42,9 @@ describe('AppComponent', () => {
     const login = fixture.debugElement.componentInstance;
     expect(login).toBeTruthy();
   }));
+  it('should create the boardlist', async(() => {
+    const fixture = TestBed.createComponent(BoardlistComponent);
+    const boardlist = fixture.debugElement.componentInstance;
+    expect(boardlist).toBeTruthy();
+  }));
 });

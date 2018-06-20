@@ -8,12 +8,16 @@ import { IBoardListItem } from '../IBoardList';
 })
 export class RightscreenComponent implements OnInit {
 
-  board: IBoardListItem = {name: 'no board selected'};
+  board: IBoardListItem = {
+    name: 'no board selected',
+    image: 'jp_windsurf_radicalquad_ov.png',
+    manufacturer_logo: 'jp_australia_logo.png'
+  };
 
-  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
+  @Output() notifyRight: EventEmitter<string> = new EventEmitter<string>();
 
   closeClicked() {
-    this.notify.emit('Click from rightscreen component');
+    this.notifyRight.emit('Click from rightscreen component');
   }
 
   closeRightWindow() {

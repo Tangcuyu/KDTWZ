@@ -1,10 +1,11 @@
 import { Component, OnInit, Injectable, EventEmitter, Output } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { IBoardListItem, IBoardSizeItem, IBoardType, IManufacturer } from '../IBoardList';
+import { IBoardListItem, IManufacturer } from '../IBoardList';
+import { BoardlistService } from './boardlist.service';
 
 
 @Component({
   selector: 'app-boardlist',
+  providers: [BoardlistService],
   templateUrl: './boardlist.component.html',
   styleUrls: ['./boardlist.component.css']
 })
@@ -17,16 +18,16 @@ export class BoardlistComponent implements OnInit {
   @Output() notify: EventEmitter<IBoardListItem> = new EventEmitter<IBoardListItem>();
 
   boardClicked(board: IBoardListItem) {
-    console.log(`board: ${board.name}`);
+   // console.log(`board: ${board.name}`);
     this.notify.emit(board);
   }
 
-  constructor(private http: HttpClient) {
+  constructor(private boardListService: BoardlistService) {
     // console.log(`BordListCompnent constructor`);
-    this.http.get<IManufacturer[]>('/boards').subscribe(
+    this.boardListService.getBoardList().subscribe(
       (data: IManufacturer[]) => {
         this.manufacturerList = this.currentList = data;
-        console.log(this.manufacturerList);
+       // console.log(this.manufacturerList);
       },
       error => {
         console.log(`error: ${error}`);

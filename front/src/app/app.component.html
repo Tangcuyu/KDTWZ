@@ -1,15 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-navbar></app-navbar>
 <nz-layout class="sidenav" id="mySidenav">
-    <app-sidenav (notifyside)='showHideSideClicked($event)'></app-sidenav>
+    <app-sidenav></app-sidenav>
 </nz-layout>
-<nz-layout>
-    <app-rightscreen (notify)='onNotifyRightWindow($event)'></app-rightscreen>
-</nz-layout>
+<app-rightscreen (notifyRight)='onNotifyRightWindow($event)'></app-rightscreen>
 <nz-layout id="main" class="main-content">
     <div nz-row>
         <div nz-col nzSpan="2">
-            <i id="showSide" class="anticon" (click)="showSideClicked()"></i>
+            <button nz-button  (click)="showHideSideClicked()">
+                <i id="show-hide-side-button" class="anticon anticon-left"></i>
+            </button>
         </div>
         <div nz-col nzSpan="22">
             <div class="row-content-header">{{title}}</div>

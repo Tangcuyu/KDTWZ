@@ -52,7 +52,7 @@ export class MainPanelWithSideNav implements IState {
     }
 
     getPanelButtonClass(): string {
-        return '';
+        return 'anticon-left';
     }
 
     isSideNavVisable(): boolean {

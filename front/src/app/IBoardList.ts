@@ -13,6 +13,7 @@ export interface IBoardType {
 export interface IBoardListItem {
     name: string;
     description?: string;
+    manufacturer_logo?: string;
     image?: string;
     long_description?: string;
     board_type?: IBoardType [];
