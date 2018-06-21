@@ -6,6 +6,7 @@ import { BoardlistComponent } from './boardlist/boardlist.component';
 import { IMediatorImpl, StateType, Mediator } from './state.mediator';
 import { LoginComponent } from './login/login.component';
 import { IBoardListItem } from './IBoardList';
+import { IApplyFilter } from './IFilters';
 
 @Component({
   selector: 'app-root',
@@ -83,6 +84,10 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
 
   showHideSideClicked(): void {
     this.mediator.showHideSideNavClicked();
+  }
+
+  onNotifyFilter(filter: IApplyFilter): void {
+    this.boardList.applyFilter(filter);
   }
 
 }

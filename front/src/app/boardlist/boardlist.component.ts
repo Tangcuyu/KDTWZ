@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable, EventEmitter, Output } from '@angular/core';
 import { IBoardListItem, IManufacturer } from '../IBoardList';
 import { BoardlistService } from './boardlist.service';
+import { IApplyFilter, FilterType } from '../IFilters';
 
 
 @Component({
@@ -20,6 +21,42 @@ export class BoardlistComponent implements OnInit {
   boardClicked(board: IBoardListItem) {
    // console.log(`board: ${board.name}`);
     this.notify.emit(board);
+  }
+
+  applyFilter( filter: IApplyFilter) {
+    this.currentList = new Array();
+    if (filter.filterType === FilterType.Manufacturer) {
+      for (const manuf of this.manufacturerList) {
+        if (manuf.manufacturer === filter.filterValue) {
+          this.currentList.push(manuf);
+        }
+      }
+    }
+    if (filter.filterType === FilterType.BoardType) {
+      for (const manuf of this.manufacturerList) {
+        const currentManuf: IManufacturer = {
+          manufacturer: manuf.manufacturer,
+          manufacturer_logo: manuf.manufacturer_logo
+        };
+        currentManuf.boards = new Array();
+        let boardFound = false;
+        for (const board of manuf.boards) {
+          for (const boardtype of board.board_types ) {
+            // console.log(`boardtype: ${boardtype.board_type} filtervalue: ${filter.filterValue}`);
+            if (boardtype.board_type === filter.filterValue) {
+              boardFound = true;
+              currentManuf.boards.push(board);
+            }
+          }
+        }
+        if (boardFound) {
+          this.currentList.push(currentManuf);
+        }
+      }
+    }
+    if (filter.filterType === FilterType.None) {
+      this.currentList = this.manufacturerList;
+    }
   }
 
   constructor(private boardListService: BoardlistService) {

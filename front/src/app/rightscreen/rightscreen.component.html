@@ -39,7 +39,7 @@
               </div>
               <div nz-row>
                 <div nz-col nzSpan="24" class="board_detail_table_header">
-                  <table class="table table-striped">
+                  <nz-table nz-size="middle" [nzData]="board.sizes" class="table table-striped">
                     <thead>
                       <th>Volume</th>
                       <th>Width</th>
@@ -56,7 +56,7 @@
                         <td>{{size.sail_min}}</td>
                       </tr>
                     </tbody>
-                  </table>
+                  </nz-table>
                 </div>
               </div>
             </div>

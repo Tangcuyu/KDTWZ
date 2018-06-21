@@ -1,9 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-navbar></app-navbar>
-<nz-layout class="sidenav" id="mySidenav">
-    <app-sidenav></app-sidenav>
-</nz-layout>
-<app-rightscreen (notifyRight)='onNotifyRightWindow($event)'></app-rightscreen>
+<app-sidenav (notifyside)="onNotifyFilter($event)" ></app-sidenav>
+<app-rightscreen (notifyRight)="onNotifyRightWindow($event)"></app-rightscreen>
 <nz-layout id="main" class="main-content">
     <div nz-row>
         <div nz-col nzSpan="2">
@@ -20,7 +18,6 @@
         </app-boardlist>
     </div>
 </nz-layout>
-
 
 
 
