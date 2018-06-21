@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 
 import { RightscreenComponent } from './rightscreen.component';
+import { NgZorroAntdModule, NzTableModule } from 'ng-zorro-antd';
 
 describe('RightscreenComponent', () => {
   let component: RightscreenComponent;
@@ -9,7 +10,8 @@ describe('RightscreenComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RightscreenComponent ]
+      declarations: [ RightscreenComponent ],
+      imports: [NgZorroAntdModule.forRoot()]
     })
     .compileComponents();
   }));
