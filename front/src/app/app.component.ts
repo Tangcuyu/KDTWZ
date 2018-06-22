@@ -28,7 +28,7 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
   private boardList: BoardlistComponent;
 
   @ViewChild(LoginComponent)
-  private loginpanel: LoginComponent;
+  private loginPanel: LoginComponent;
 
   mediator: Mediator = new Mediator(this);
   ngAfterViewInit() {
@@ -60,11 +60,15 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
     }
   }
   showLoginPanel() {
-    return '';
+    document.getElementById('loginPanel').classList.remove('login_sidenav_fade');
+    document.getElementById('loginPanel').style.visibility = 'visible';
   }
 
   hideLoginPanel() {
-    return '';
+    document.getElementById('loginPanel').classList.add('login_sidenav_fade');
+    setTimeout(() => {
+      document.getElementById('loginPanel').style.visibility = 'hidden';
+    }, 1000);
   }
 
   buttonClickedDetail() {
@@ -90,4 +94,14 @@ export class AppComponent implements IMediatorImpl, AfterViewInit {
     this.boardList.applyFilter(filter);
   }
 
+  onNotifyNavbar(message: string): void {
+    if (message === 'Login') {
+      this.mediator.moveToState(StateType.LoginPanel);
+    }
+  }
+
+  onNotifyLogin(message: string): void {
+    this.mediator.moveToState(this.mediator.getCurrentMainWindowState());
+    console.log(message);
+  }
 }

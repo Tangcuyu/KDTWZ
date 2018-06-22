@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, EventEmitter, Output } from '@angular/core';
 
 interface IButtonName {
   ButtonName: string;
@@ -11,6 +11,7 @@ interface IButtonName {
 })
 @Injectable()
 export class NavbarComponent implements OnInit {
+  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
   menuItems: IButtonName [] = [
     { ButtonName: '物资采购管理'},
@@ -25,4 +26,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  navClicked(item: IButtonName) {
+    // console.log(`item clicked: ${item.ButtonName}`);
+    this.notify.emit(`${item.ButtonName}`);
+  }
 }

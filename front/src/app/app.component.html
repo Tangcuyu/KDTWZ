@@ -1,5 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-navbar></app-navbar>
+<app-navbar (notify)="onNotifyNavbar($event)"></app-navbar>
+<app-login (notify)="onNotifyLogin($event)"></app-login>
 <app-sidenav (notifyside)="onNotifyFilter($event)" ></app-sidenav>
 <app-rightscreen (notifyRight)="onNotifyRightWindow($event)"></app-rightscreen>
 <nz-layout id="main" class="main-content">

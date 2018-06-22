@@ -30,6 +30,7 @@ keystone.pre('render', middleware.flashMessages);
 const routes = {
       api: importRoutes('./api'),
       views: importRoutes('./views'),
+      auth: importRoutes('./auth')
 };
 
 // Setup Route Bindings
@@ -40,6 +41,7 @@ export = function (app) {
       app.get('/blog/post/:post', routes.views.post);
       app.get('/gallery', routes.views.gallery);
       app.get('/boards', routes.api.boards);
+      app.post('/login', routes.auth.login);
       app.all('/contact', routes.views.contact);
 
       // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

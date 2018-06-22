@@ -125,6 +125,7 @@ export class Mediator {
     private _currentState: IState;
     private _currentMainPanelState: IState;
     private _mediatorImpl: IMediatorImpl;
+    private _mainwindowState: IState;
 
     constructor(mediatorImpl: IMediatorImpl) {
         this._mediatorImpl = mediatorImpl;
@@ -169,6 +170,7 @@ export class Mediator {
 
         if (nextState.isLoginVisible()) {
             this._mediatorImpl.showLoginPanel();
+            this._mainwindowState = previousState;
         } else {
             this._mediatorImpl.hideLoginPanel();
         }
@@ -187,6 +189,10 @@ export class Mediator {
 
     getCurrentMainPanelState(): StateType {
         return this._currentMainPanelState.getStateType();
+    }
+
+    getCurrentMainWindowState(): StateType {
+        return this._mainwindowState.getStateType();
     }
 
     showHideSideNavClicked() {
